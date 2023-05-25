@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhplgu6b2jehn"]
+
+[ext_resource type="Script" path="res://troop/troop.gd" id="1_nktfh"]
+[ext_resource type="Texture2D" uid="uid://c8tfoo85eiqnt" path="res://troop/icon.svg" id="2_jg2sj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xf0ej"]
+size = Vector2(62, 62)
+
+[node name="TROOP" type="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(17, 16)
+script = ExtResource("1_nktfh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-17, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_jg2sj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(-17, -16)
+shape = SubResource("RectangleShape2D_xf0ej")
