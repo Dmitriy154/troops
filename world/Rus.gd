@@ -10,7 +10,6 @@ func _input(event):
 
 func _physics_process(_delta):
 	velocity = position.direction_to(target) * speed
-	if position.distance_to(target) > 10:
+	if position.distance_to(target) > 15:
 		move_and_slide()
-
 
