@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://iiqkawd1b3uy"]
+[gd_scene load_steps=6 format=3 uid="uid://iiqkawd1b3uy"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_a6llq"]
 [ext_resource type="Texture2D" uid="uid://puub3ad2hy6j" path="res://asset/Spritesheet/roguelikeSheet_transparent.png" id="1_qbkoc"]
 [ext_resource type="Script" path="res://world/red_point.gd" id="3_6l54m"]
-[ext_resource type="PackedScene" uid="uid://dhplgu6b2jehn" path="res://troop/troop.tscn" id="4_iwdl1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pgh1b"]
 texture = ExtResource("1_qbkoc")
@@ -4820,6 +4819,3 @@ layer_2/tile_data = PackedInt32Array(917560, 524288, 4, 917561, 524288, 4, 91756
 
 [node name="red_point" type="Node2D" parent="."]
 script = ExtResource("3_6l54m")
-
-[node name="TROOP" parent="." instance=ExtResource("4_iwdl1")]
-position = Vector2(101, 456)

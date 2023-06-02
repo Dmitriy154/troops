@@ -15,6 +15,10 @@ run/main_scene="res://world/world.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://troop/icon.svg"
 
+[autoload]
+
+Main="*res://main.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -38,4 +42,4 @@ click={
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
