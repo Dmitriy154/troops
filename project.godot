@@ -17,7 +17,7 @@ config/icon="res://troop/icon.svg"
 
 [autoload]
 
-Main="*res://main.gd"
+Main="*res://Main.gd"
 
 [display]
 

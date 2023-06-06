@@ -2,11 +2,12 @@ class_name Troop
 extends CharacterBody2D
 #TROOP класс войска
 
-# состояния: активно (выделено), покой, прогулка, бег, атака, защита, отступление
-enum State {idle=0, walk=1, run=2, attack=3, defense=4, retreat=5}
+# состояния: покой, выбран, прогулка, бег, атака, защита, отступление
+enum State {IDLE, WALK, RUN, ATTACK, DEFENSE, RETREAT}
 
-var state = State.idle
-var active: int = 0	#стадия активности, 1-клик по войску, 2-активно на след. кадр	
+var state := State.IDLE
+var selected := false
+var active: int = 0		#стадия активности, 1-клик по войску, 2-активно на след. кадр	
 var speed: float = 100
 var health: float = 100:
 	set(x): health = clamp(x,0,100)
@@ -18,30 +19,43 @@ var target := Vector2.ZERO
 
 func _ready():
 	pass
+	
+
+func change_state(new_state: State):
+	state = new_state
+	update_troop()
+
+func update_troop():
+	print('update troop')
+	match state:
+		State.IDLE:
+			if(!selected): 
+				$fon.hide()
+			else:
+				$fon.show()
+		State.WALK:
+			pass
+		State.RUN:
+			pass
+		State.ATTACK:
+			pass
+		State.RETREAT:
+			pass
+		_:
+			print('default')
+			
+	get_parent().update()
+
 
 func _physics_process(_delta):
-	# если войско выделено щелчком, добавить условие - ждем второго щелчка!
-	if active == 2:
-		# ДВИЖЕНИЕ ПО КЛИКУ МЫШИ / если клик был внутри войска то return???
-		if not target == Vector2.ZERO:
-			velocity = position.direction_to(target) * speed
-			if position.distance_to(target) > 5:
-				move_and_slide()
-			else:
-				active = 0
-				$fon.hide()
+	pass
 
-		
-func _unhandled_input(event):
-	if event.is_action_pressed("click"):
-		target = get_global_mouse_position()
-		if active == 1: active = 2
-	
 
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
-		active = 1
-		$fon.show()
+		print('click troop')
+		selected = true
+		update_troop()
 
 
 func death():
