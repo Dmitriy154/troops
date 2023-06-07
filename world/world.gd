@@ -5,6 +5,7 @@ var troop: Troop
 var troops_array: Array[Troop] = []
 var troops_selected: Array[Troop] = []
 var target_click: Vector2
+var old_target_click: Vector2
 
 @onready var troopScene = load("res://troop/troop.tscn")
 
@@ -25,7 +26,8 @@ func update():
 		troop = troops_array[i] as Troop
 		if troop.selected:
 			troops_selected.append(troop)
-	#print(troops_selected.size())
+	print('update World')
+	#target_click = Vector2.ZERO
 
 
 func _unhandled_input(event):
@@ -39,7 +41,7 @@ func _unhandled_input(event):
 		if troops_selected.size() == 1:
 			troop = troops_selected[0]
 			troop.state = troop.State.WALK
-			Main.troop_move(troop, target_click)
+			update()
 		
 		await get_tree().create_timer(1).timeout # ждем секунду
 		$red_point.hide()
@@ -54,7 +56,8 @@ func _physics_process(_delta):
 	if troops_selected.size() == 1:
 		troop = troops_selected[0]
 		if (troop.state != troop.State.IDLE): 
-			Main.troop_move(troops_selected[0] as Troop, target_click)
+			print('3333')
+			Main.troop_move(troop, target_click)
 	#если выделены несколько отрядов
 	if troops_selected.size() > 1:
 		Main.troops_move(troops_selected, target_click)
