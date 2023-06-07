@@ -18,10 +18,13 @@ func troop_move(troop:Troop, target:Vector2):
 			#Это минимальный угол, на который тело может скользить при ударе о склон.
 			troop.move_and_slide()
 		else:
-			troop.selected = false   #состояние покоя
+			print('отряд прибыл')
+			troop.state = Troop.State.IDLE
+			#troop.selected = false   #состояние покоя
 
 func troops_move(_troop_array:Array[Troop], _position_click:Vector2):
 	print('движение отрядов')
+	pass
 
 
 

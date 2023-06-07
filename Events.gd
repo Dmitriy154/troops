@@ -1,5 +1,8 @@
 extends Node
 
+#troop
+signal updateTroop(state)
+
 #UI
 #signal menu_action_selected(action)
 
