@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://iiqkawd1b3uy"]
 
-[ext_resource type="Script" path="res://world/world.gd" id="1_a6llq"]
-[ext_resource type="Texture2D" uid="uid://puub3ad2hy6j" path="res://asset/Spritesheet/roguelikeSheet_transparent.png" id="1_qbkoc"]
-[ext_resource type="Script" path="res://world/red_point.gd" id="3_6l54m"]
+[ext_resource type="Script" path="res://world/world.gd" id="1_fvarb"]
+[ext_resource type="Texture2D" uid="uid://puub3ad2hy6j" path="res://asset/Spritesheet/roguelikeSheet_transparent.png" id="2_4e016"]
+[ext_resource type="Script" path="res://world/Rep_point.gd" id="3_gq85r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pgh1b"]
-texture = ExtResource("1_qbkoc")
+texture = ExtResource("2_4e016")
 separation = Vector2i(1, 1)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -4794,7 +4794,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_pgh1b")
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_a6llq")
+script = ExtResource("1_fvarb")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ro5x5")
@@ -4818,4 +4818,5 @@ layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(917560, 524288, 4, 917561, 524288, 4, 917562, 524288, 4, 852026, 524288, 4, 852027, 524288, 4, 852028, 2883584, 4, 852029, 524288, 4, 852030, 524288, 4, 852031, 2883584, 4, 786495, 524288, 4, 852032, 524288, 4, 786496, 3080192, 10, 852025, 2883584, 4, 852024, 524288, 4, 917568, 524288, 4, 917567, 524288, 4, 917566, 524288, 4, 917565, 524288, 4, 917564, 524288, 4, 917563, 524288, 4, 917559, 524288, 4, 852023, 524288, 4, 786487, 3014656, 10, 786488, 524288, 4, 786489, 524288, 4, 786490, 524288, 4, 786491, 524288, 4, 786492, 524288, 4, 786493, 524288, 4, 786494, 524288, 4)
 
 [node name="red_point" type="Node2D" parent="."]
-script = ExtResource("3_6l54m")
+process_mode = 4
+script = ExtResource("3_gq85r")
