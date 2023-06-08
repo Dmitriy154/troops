@@ -1,10 +1,15 @@
 extends Node
 #главный скрип, глобальный
 
+var screen_size 	#размер игрового окна
+
+#get_tree().paused = true   -  поставить игру на паузу
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
@@ -19,12 +24,13 @@ func troop_move(troop:Troop, target:Vector2):
 			troop.move_and_slide()
 		else:
 			print('отряд прибыл')
-			troop.state = Troop.State.IDLE
+			troop.change_state(troop.State.IDLE)
 			#troop.selected = false   #состояние покоя
 
 func troops_move(_troop_array:Array[Troop], _position_click:Vector2):
 	print('движение отрядов')
 	pass
+
 
 
 

@@ -15,8 +15,6 @@ var speed: float = 100
 var health: float = 100:
 	set(x): health = clamp(x,0,100)
 
-
-var target := Vector2.ZERO
 #ссылка на картинку - изменим Resource
 @onready var sprite2d = $Sprite2D		
 
@@ -24,6 +22,7 @@ var target := Vector2.ZERO
 func change_state(new_state: State):
 	state = new_state
 	update_troop()
+
 
 func update_troop():
 	print('update troop')
@@ -42,17 +41,6 @@ func update_troop():
 			print('default')
 
 	Events.updateTroop.emit()
-
-
-func _on_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.pressed:
-		if(selected):		
-			selected = false
-			$fon.hide()
-		else:
-			selected = true
-			$fon.show()
-		update_troop()
 
 
 func death():
