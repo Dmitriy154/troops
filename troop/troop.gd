@@ -28,7 +28,7 @@ func update_troop():
 	print('update troop')
 	match state:
 		State.IDLE:
-			print('IDLE')
+			pass
 		State.WALK:
 			pass
 		State.RUN:

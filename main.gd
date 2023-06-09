@@ -13,7 +13,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
-	
+
+
 func troop_move(troop:Troop, target:Vector2):
 	if not target == Vector2.ZERO:
 		troop.velocity = troop.position.direction_to(target) * troop.speed
@@ -29,7 +30,6 @@ func troop_move(troop:Troop, target:Vector2):
 
 func troops_move(_troop_array:Array[Troop], _position_click:Vector2):
 	print('движение отрядов')
-	pass
 
 
 

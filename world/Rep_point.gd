@@ -10,7 +10,7 @@ func _ready():
 	
 
 func _draw():
-	draw_circle(Vector2(0,0), 5, Color(1, 0, 0, 1))
+	draw_circle(Vector2(0,0), 6, Color(1, 0, 0, 1))
 	#draw_line(Vector2(1.5, 1.0), Vector2(150, 400), Color.GREEN, 1.0)
 
 func show_target(target: Vector2):
