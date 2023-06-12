@@ -3,12 +3,9 @@ extends Control
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		print("Отряд выделен!")
-		if($"..".selected):		
-			$"..".selected = false
-			$"../fon".hide()
-		else:
-			$"..".selected = true
-			$"../fon".show()
+		if($"..".selected):		$"..".selected = false
+		else:	$"..".selected = true
+
 		$"..".update_troop()
 
 

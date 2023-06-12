@@ -17,8 +17,9 @@ config/icon="res://troop/icon.svg"
 
 [autoload]
 
-Main="*res://Main.gd"
-Events="*res://Events.gd"
+Main="*res://Global_scripts/Main.gd"
+Events="*res://Global_scripts/Events.gd"
+Arr="*res://Global_scripts/Arr.gd"
 
 [display]
 
