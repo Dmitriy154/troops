@@ -1,11 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhplgu6b2jehn"]
+[gd_scene load_steps=9 format=3 uid="uid://dhplgu6b2jehn"]
 
 [ext_resource type="Script" path="res://troop/troop.gd" id="1_nktfh"]
 [ext_resource type="Texture2D" uid="uid://b3thwit0ld1dx" path="res://asset/blue1.png" id="2_2huad"]
 [ext_resource type="Script" path="res://troop/click_area.gd" id="3_aqmqn"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_adxry"]
-radius = 32.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8eqh"]
+size = Vector2(57, 58)
+
+[sub_resource type="FontFile" id="FontFile_en25q"]
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/12/0 = Vector2(0, 0)
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/12/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/12/0/kerning_overrides/12/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fi1wy"]
+font = SubResource("FontFile_en25q")
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_g3vt5"]
+font_size = 12
+font_color = Color(1, 1, 0.501961, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ui3ok"]
+font_size = 12
+font_color = Color(0.603922, 1, 1, 1)
 
 [node name="TROOP" type="CharacterBody2D"]
 texture_filter = 1
@@ -14,6 +45,7 @@ velocity = Vector2(-100, 0)
 script = ExtResource("1_nktfh")
 
 [node name="fon" type="ColorRect" parent="."]
+process_mode = 4
 visible = false
 offset_left = -38.0
 offset_top = -36.0
@@ -23,19 +55,44 @@ mouse_filter = 2
 color = Color(1, 1, 0.545098, 0.815686)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
+process_mode = 4
 texture = ExtResource("2_2huad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_adxry")
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_d8eqh")
+
+[node name="Debug1" type="Label" parent="."]
+offset_left = -35.0
+offset_top = -33.0
+offset_right = 34.0
+offset_bottom = -10.0
+label_settings = SubResource("LabelSettings_fi1wy")
+horizontal_alignment = 1
+
+[node name="Debug2" type="Label" parent="."]
+offset_left = -34.0
+offset_top = -11.0
+offset_right = 35.0
+offset_bottom = 12.0
+label_settings = SubResource("LabelSettings_g3vt5")
+horizontal_alignment = 1
+
+[node name="Debug3" type="Label" parent="."]
+offset_left = -34.0
+offset_top = 9.0
+offset_right = 35.0
+offset_bottom = 32.0
+label_settings = SubResource("LabelSettings_ui3ok")
+horizontal_alignment = 1
 
 [node name="Click_area" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -37.0
-offset_top = -35.0
+offset_top = -36.0
 offset_right = 38.0
-offset_bottom = 38.0
+offset_bottom = 37.0
 script = ExtResource("3_aqmqn")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
