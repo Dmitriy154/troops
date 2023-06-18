@@ -19,25 +19,36 @@ var health: float = 100:
 #ссылка на картинку - изменим Resource
 @onready var sprite2d = $Sprite2D		
 
-func _physics_process(delta):
+func _ready():
+	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING 
+	#Применяется, когда нет понятия пола или потолка. Обо всех столкновениях сообщается как on_wall. 
+	#В этом режиме, когда вы скользите, скорость всегда будет постоянной. Этот режим подходит для игр сверху вниз.
+
+func _physics_process(_delta):	
 	if target == Vector2.ZERO:
 		pass
 	else:
 		velocity = position.direction_to(target) * speed
+		
 		if position.distance_to(target) > 5:
-			wall_min_slide_angle = 0.1 
-			#значение по умолчанию: 0.261799 (в радианах, эквивалентно 15градусам)
-			#Это минимальный угол, на который тело может скользить при ударе о склон.
-			move_and_slide()
+			wall_min_slide_angle = 0.1
+			#мин. угол, на кот. тело может скользить при ударе о склон: 0.261799 (в рад. или 15град)
 			
-			## оптимизировать!!!
-			if velocity.length() < speed/5: 
-				target = Vector2.ZERO
-				velocity = Vector2.ZERO
-				selected = false
-				change_state(State.IDLE)
-				print('отряд прибыл')
-
+			#округление до сотых
+			$Debug1.text = str("%10.2f" % get_real_velocity().length())
+#			$Debug2.text = str("%10.2f" % get_position_delta().length())
+#			$Debug3.text = str(get_position_delta())
+			
+			if move_and_slide():
+#				await get_tree().create_timer(randf_range(0.1, 1.5)).timeout		
+				if (get_real_velocity().length() < 0.5*speed): 
+					#можно сделать паузу
+					target = Vector2.ZERO
+					velocity = Vector2.ZERO
+					selected = false
+					change_state(State.IDLE)
+					print('отряд прибыл')
+					
 		else:
 			target = Vector2.ZERO
 			velocity = Vector2.ZERO
@@ -45,8 +56,6 @@ func _physics_process(delta):
 			change_state(State.IDLE)
 			print('отряд прибыл')
 			
-
-
 
 
 func change_state(new_state: State):
@@ -71,7 +80,6 @@ func update_troop():
 	
 	if (selected): $fon.show()
 	else: $fon.hide()
-
 
 	Events.updateTroop.emit()
 

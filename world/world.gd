@@ -11,7 +11,7 @@ func _ready():
 	Events.updateTroop.connect(update)  #регистрируем слушатель, который принимает сигнал о вызове экз-ром troop метода update_troop
 
 	#добавляем на сцену отряды
-	for i in 2:
+	for i in 4:
 		troop = troopScene.instantiate()
 		troop.position = Vector2(50, 70*i+50)
 		Arr.troops.append(troop as Troop)
@@ -33,6 +33,6 @@ func _unhandled_input(event):
 		target_click = get_global_mouse_position()
 		$red_point.show_target(target_click) 
 		
-		#переделать в методы которые изменяют target состояния отрядов
+		#для выделенных отрядов устанавливается target и меняем state
 		Arr.set_target_arr(Arr.tr_sel, target_click)
 
