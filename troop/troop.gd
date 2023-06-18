@@ -31,6 +31,7 @@ func _physics_process(_delta):
 		velocity = position.direction_to(target) * speed
 		
 		if position.distance_to(target) > 5:
+<<<<<<< HEAD
 			wall_min_slide_angle = 0.1
 			#мин. угол, на кот. тело может скользить при ударе о склон: 0.261799 (в рад. или 15град)
 			
@@ -49,6 +50,21 @@ func _physics_process(_delta):
 					change_state(State.IDLE)
 					print('отряд прибыл')
 					
+=======
+			print(get_real_velocity().length())
+			wall_min_slide_angle = 0.1
+			#мин. угол, на кот. тело может скользить при ударе о склон: 0.261799 (в рад. или 15град)
+			
+			#округление до сотых
+			$Debug1.text = str("%10.2f" % get_real_velocity().length())
+			$Debug2.text = str("%10.2f" % get_position_delta().length())
+			$Debug3.text = str(get_position_delta())
+			
+			if move_and_slide():
+				speed -= 1
+
+
+>>>>>>> 92f723af622493a914a6d7d627d4eec55f569de3
 		else:
 			target = Vector2.ZERO
 			velocity = Vector2.ZERO
@@ -57,7 +73,10 @@ func _physics_process(_delta):
 			print('отряд прибыл')
 			
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 92f723af622493a914a6d7d627d4eec55f569de3
 func change_state(new_state: State):
 	state = new_state
 	update_troop()

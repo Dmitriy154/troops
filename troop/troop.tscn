@@ -5,7 +5,11 @@
 [ext_resource type="Script" path="res://troop/click_area.gd" id="3_aqmqn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8eqh"]
+<<<<<<< HEAD
 size = Vector2(65, 65)
+=======
+size = Vector2(57, 58)
+>>>>>>> 92f723af622493a914a6d7d627d4eec55f569de3
 
 [sub_resource type="FontFile" id="FontFile_en25q"]
 face_index = null
@@ -59,7 +63,11 @@ process_mode = 4
 texture = ExtResource("2_2huad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+<<<<<<< HEAD
 position = Vector2(-0.5, 0.5)
+=======
+position = Vector2(-0.5, 0)
+>>>>>>> 92f723af622493a914a6d7d627d4eec55f569de3
 shape = SubResource("RectangleShape2D_d8eqh")
 
 [node name="Debug1" type="Label" parent="."]
