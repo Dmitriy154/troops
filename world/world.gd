@@ -11,7 +11,7 @@ var old_target_click: Vector2
 
 func _ready():
 	Main.screen_size = get_viewport_rect().size
-	Events.updateTroop.connect(update)  #регистрируем слушатель, который принимает сигнал о вызове экз-ром troop метода update_troop
+#	Events.updateTroop.connect(update)  #регистрируем слушатель, который принимает сигнал о вызове экз-ром troop метода update_troop
 	
 	#добавляем на сцену отряды
 	for i in 2:

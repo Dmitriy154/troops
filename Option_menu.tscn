@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://brlebscf1hxyi"]
+
+[ext_resource type="Texture2D" uid="uid://dmwylw5ldhaay" path="res://asset/Picture/PICTURE_OPTION_MENU.png" id="1_8p747"]
+[ext_resource type="Script" path="res://Option_menu.gd" id="1_eraox"]
+[ext_resource type="Texture2D" uid="uid://bjhh1cq8hfcsd" path="res://asset/Picture/button_64.png" id="2_08aau"]
+[ext_resource type="Texture2D" uid="uid://ve8ieue4xa8h" path="res://asset/Picture/button_63.png" id="3_whll5"]
+
+[node name="Option_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_eraox")
+
+[node name="PictureOptionMenu" type="Sprite2D" parent="."]
+position = Vector2(575, 325.5)
+scale = Vector2(0.898437, 0.898611)
+texture = ExtResource("1_8p747")
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 203.0
+offset_right = 704.0
+offset_bottom = 488.0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer"]
+position = Vector2(21, 207)
+scale = Vector2(2.02804, 1.5)
+texture_normal = ExtResource("2_08aau")
+texture_pressed = ExtResource("3_whll5")
+
+[node name="Label" type="Label" parent="HBoxContainer/TouchScreenButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -13.0
+offset_right = 31.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RETURN"
+
+[connection signal="released" from="HBoxContainer/TouchScreenButton" to="." method="_on_touch_screen_button_released"]

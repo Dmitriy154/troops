@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://clk63kp00lpw8"]
+
+[ext_resource type="Texture2D" uid="uid://23ywc3ygetkl" path="res://asset/Picture/MAIN_LAYOR_MAIN_MENU1.png" id="1_b2ga5"]
+[ext_resource type="Script" path="res://Game_menu.gd" id="1_f0kkk"]
+[ext_resource type="Texture2D" uid="uid://bjhh1cq8hfcsd" path="res://asset/Picture/button_64.png" id="2_4cbev"]
+[ext_resource type="Texture2D" uid="uid://ve8ieue4xa8h" path="res://asset/Picture/button_63.png" id="3_s1vx3"]
+
+[node name="Game_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f0kkk")
+
+[node name="MainLayorMainMenu1" type="Sprite2D" parent="."]
+position = Vector2(576.5, 325.5)
+scale = Vector2(0.902344, 0.906945)
+texture = ExtResource("1_b2ga5")
+metadata/_edit_lock_ = true
+
+[node name="Menu_container" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 379.0
+offset_right = 1002.0
+offset_bottom = 557.0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Menu_container"]
+position = Vector2(-2, 0)
+scale = Vector2(2.78505, 1.325)
+texture_normal = ExtResource("2_4cbev")
+texture_pressed = ExtResource("3_s1vx3")
+
+[node name="Label" type="Label" parent="Menu_container/TouchScreenButton"]
+offset_left = 26.5704
+offset_top = 9.81133
+offset_right = 72.5704
+offset_bottom = 35.8113
+text = "GAME"
+metadata/_edit_lock_ = true
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="Menu_container"]
+position = Vector2(-1, 62)
+scale = Vector2(2.78505, 1.325)
+texture_normal = ExtResource("2_4cbev")
+texture_pressed = ExtResource("3_s1vx3")
+
+[node name="Label2" type="Label" parent="Menu_container/TouchScreenButton2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -13.0
+offset_right = 31.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "OPTION"
+metadata/_edit_lock_ = true
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="Menu_container"]
+position = Vector2(0, 124)
+scale = Vector2(2.78505, 1.325)
+texture_normal = ExtResource("2_4cbev")
+texture_pressed = ExtResource("3_s1vx3")
+
+[node name="Label3" type="Label" parent="Menu_container/TouchScreenButton3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.5
+offset_top = -13.0
+offset_right = 16.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXIT"
+metadata/_edit_lock_ = true
+
+[connection signal="released" from="Menu_container/TouchScreenButton" to="." method="_on_touch_screen_button_released"]
+[connection signal="released" from="Menu_container/TouchScreenButton2" to="." method="_on_touch_screen_button_2_released"]
+[connection signal="released" from="Menu_container/TouchScreenButton3" to="." method="_on_touch_screen_button_3_released"]

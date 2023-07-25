@@ -40,7 +40,7 @@ func update_troop():
 		_:
 			print('default')
 
-	Events.updateTroop.emit()
+#	Events.updateTroop.emit()
 
 
 func death():
