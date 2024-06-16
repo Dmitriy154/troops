@@ -11,37 +11,58 @@ config_version=5
 [application]
 
 config/name="Troops"
-run/main_scene="res://world/world.tscn"
-config/features=PackedStringArray("4.0", "Mobile")
-config/icon="res://troop/icon.svg"
+run/main_scene="res://scenes/ui/menuHUD.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
+boot_splash/show_image=false
+boot_splash/image="res://asset/preloader.png"
+config/icon="res://icon.svg"
 
 [autoload]
 
-Main="*res://Global_scripts/Main.gd"
-Events="*res://Global_scripts/Events.gd"
-Arr="*res://Global_scripts/Arr.gd"
+Events="*res://core/Events.gd"
+Main="*res://core/Main.gd"
 
 [display]
 
 window/stretch/mode="canvas_items"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
-click={
+mclick={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(102, 15),"global_position":Vector2(106, 58),"factor":1.0,"button_index":1,"pressed":true,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+wheel_down={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":5,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+wheel_up={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":4,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+pointing/android/enable_pan_and_scale_gestures=true
+
 [layer_names]
 
-2d_physics/layer_1="ground"
-2d_physics/layer_2="forest"
+2d_physics/layer_1="troops"
+2d_navigation/layer_1="grass"
+2d_physics/layer_2="enemy"
 2d_physics/layer_3="water"
-2d_physics/layer_4="buildings"
-2d_physics/layer_5="troops"
-2d_physics/layer_6="enemies"
+2d_physics/layer_4="objects"
+2d_physics/layer_5="forest"
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

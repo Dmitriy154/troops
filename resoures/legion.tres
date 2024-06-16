@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BD" load_steps=2 format=3 uid="uid://bsis0ivjr6ex8"]
+
+[ext_resource type="Script" path="res://methods/bd.gd" id="1_rktov"]
+
+[resource]
+script = ExtResource("1_rktov")
+troop_health = 4000.0
+troop_speed = 80.0
